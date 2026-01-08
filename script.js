@@ -1,8 +1,3 @@
-// TASK FOR NEXT TIME
-// complete apple handeling, and add dataset.grid to apple and handle it
-// and handle dataset.grid of snakeBody parts
-// Logic for apple eating and snakeBody grow
-
 // Global Variables and QuerySelectors
 const alerts = document.querySelector("#alerts");
 alerts.style.display = 'none';
@@ -127,18 +122,17 @@ createGameBoardGrids();
 
 // Load Level
 function loadLevel(){
-    let grid = `${nRows/2}/${nCols/2}/${(nRows/2)+1}/${(nCols/2)+1}`;
+    let rowMid = Math.floor(nRows/2);
+    let colMid = Math.floor(nCols/2);
+    let grid = `${rowMid}/${colMid}/${rowMid+1}/${colMid+1}`;
     direction = 'right';
     snakeBody = [];
-    currLvlScore = 0;
     resetScoreTocurrentLvl();
-    // loading Snake again
+    currLvlScore = 0;
     gameBoard.textContent = ''; //clear the entire gameBoard
     snakeHead.style.gridArea = grid;
     snakeHead.dataset.grid = grid;
     let snakeBodyPart = createSnakeBody();
-    let rowMid = Math.floor(nRows/2);
-    let colMid = Math.floor(nCols/2);
     snakeBodyPart.style.gridArea = `${rowMid}/${colMid-1}/${rowMid+1}/${colMid}`;
     snakeBody.push(snakeBodyPart);
     snakeHead.style.transform = 'rotate(0deg)';
@@ -232,6 +226,7 @@ function moveSnake(){
     if(nextGrid === apple.dataset.grid){
         incScore();
         if(islevelCompleted()){
+            currLvlScore = 0;
             levelCompleted();
             return;
         }
@@ -329,7 +324,6 @@ function gamePause(){
 function gameOver(){
     (AlertObj.generateAlert('Game Over!!!!', 3000))();
     gamePause();
-    resetScoreTocurrentLvl();
     loadLevel();
 }
 
