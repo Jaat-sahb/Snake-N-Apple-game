@@ -137,7 +137,9 @@ function loadLevel(){
     snakeHead.style.gridArea = grid;
     snakeHead.dataset.grid = grid;
     let snakeBodyPart = createSnakeBody();
-    snakeBodyPart.style.gridArea = `${nRows/2}/${(nCols/2)-1}/${(nRows/2)+1}/${(nCols/2)}`;
+    let rowMid = Math.floor(nRows/2);
+    let colMid = Math.floor(nCols/2);
+    snakeBodyPart.style.gridArea = `${rowMid}/${colMid-1}/${rowMid+1}/${colMid}`;
     snakeBody.push(snakeBodyPart);
     snakeHead.style.transform = 'rotate(0deg)';
     gameBoard.appendChild(snakeHead);
