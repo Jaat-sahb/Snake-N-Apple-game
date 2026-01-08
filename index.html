@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="alerts">
+        <div class="alert-box">
+            <div class="alertbox-title-nav">
+                <h2 class="alertbox-title">Alert</h2>
+            </div>
+            <div class="alerts-texts">
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="game-title">Snake & Apple</h1>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Level:</span>
+                    <span class="stat-value" id="level">1</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Score:</span>
+                    <span class="stat-value" id="score">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="game-container">
+        <section class="game-board" id="gameBoard">
+        </section>
+        <section class="game-info">
+            <button class="btn-start" id="startBtn">Start Game</button>
+            <button class="btn-pause" id="pauseBtn">Pause</button>
+            <div class="instructions">
+                <h3>Instructions</h3>
+                <p>Use arrow keys to move the snake</p>
+                <p>Eat apples to grow and increase score</p>
+                <p>Avoid hitting walls and yourself</p>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
